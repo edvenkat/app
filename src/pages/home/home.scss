@@ -1,0 +1,50 @@
+page-home {
+    .filters p {
+        font-size: 1.4rem;
+    }
+    ion-slides {
+        width: 100%;
+        height: initial;
+        overflow:auto;
+    }
+    .range-md.range-disabled .range-bar-active {
+        background-color: #c10536 !important;
+    }
+    .range-md.range-disabled .range-knob {
+        display: none !important;
+    }
+    .range-md .range-bar {
+        height:8px !important;
+    }
+    .filters {
+        background-color: #c10536;
+        color : #fff;
+        ion-col {
+            text-align: center;
+            font-size: 1.6rem;
+            line-height: 1.6rem;
+
+            ion-icon {
+                color: #ccc;
+            }
+
+            &.col-with-arrow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        p {
+            color: #fff;
+            margin: 0;
+            font-size: 1.6rem;
+            line-height: 5rem;
+            font-weight: 100;
+        }
+
+        .selected {
+            font-weight: 700;
+        }
+    }
+}

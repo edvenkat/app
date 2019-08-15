@@ -1,0 +1,35 @@
+page-list {
+    .card-md ion-list{
+        margin-bottom: 20px !important;
+    }
+    .range-md.range-disabled .range-bar-active,.range-md .range-bar-active {
+        background-color: #c10536 !important;
+    }
+    .range-md.range-disabled .range-knob {
+        display: none !important;
+    }
+    .range-disabled .range-slider .range-bar {
+        height:8px !important;
+    }
+    .range-md .range-knob {
+        background : #012169
+    }
+    .range-md .range-bar {
+        height:4px !important;
+    }
+    .badge-md{
+        background-color: #c10536 !important;
+    }
+    .button-md{
+        background-color: #c10536 !important;
+    }
+.more_song_button {
+        text-align: center;
+        color:#71a42f;
+        text-decoration: underline;
+        width:100%;
+        margin:0px auto;
+        padding:15px 0 15px 0;
+        font-size : 18px;
+    }
+}

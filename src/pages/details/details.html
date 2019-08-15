@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title class="site_color">
+            Contest Details
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+    <ion-card>
+        <!-- *ngFor="let liveContest of liveContest" (click)="goToDetailPage(liveContest.contest_id)"-->
+        <img src="http://192.168.1.8/bidding/assets/images/product_image/1558241210Lighthouse.jpg"
+            style="width:100%;min-height: 177px;" />
+        <ion-card-content (click)="goToDetailPage(liveContest.contest_id)">
+            <ion-card-title>
+                <!-- {{liveContest.product_name}} -->Test
+            </ion-card-title>
+        </ion-card-content>
+        <ion-row padding-horizontal>
+            <ion-col text-left>
+                <strong>Price</strong> : Rs. 2
+                <!-- {{liveContest.product_price}} -->
+            </ion-col>
+            <ion-col text-left>
+                <strong>Entry Price</strong> : Rs. 4
+                <!-- {{liveContest.contest_entry_price}} -->
+            </ion-col>
+        </ion-row>
+        <ion-row padding-horizontal>
+            <ion-col text-left>
+                <strong>Spots Left</strong> : 3
+                <!-- {{liveContest.left_count}} -->
+            </ion-col>
+            <ion-col text-left>
+                <strong>Total Spots</strong> : 5
+                <!-- {{liveContest.contest_size}} -->
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding>
+            <ion-col text-center>
+                <ion-range min="0" disabled max="10" color="secondary">
+                </ion-range>
+                <!-- <ion-range min="0" disabled max="liveContest.contest_size"
+                        [(ngModel)]="liveContest.joined_count" color="secondary">
+                    </ion-range> -->
+            </ion-col>
+
+        </ion-row>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            Join Contest
+        </ion-card-header>
+        <ion-card-content>
+                <ion-row no-padding>
+                        <ion-col text-left col-6 class="myInput">
+                                <ion-input type="text" placeholder="1"></ion-input>
+                        </ion-col>
+                        <ion-col text-left col-1 style="font-size:33px;">
+                                .
+                        </ion-col>
+                        <ion-col text-left col-5 class="myInput">
+                                <ion-input type="text" placeholder="00"></ion-input>
+                        </ion-col>
+                    </ion-row>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

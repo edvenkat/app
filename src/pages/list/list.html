@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="site_color">Search Result</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="showFliterFunction()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+  
+ 
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngIf="showFilter">
+        <ion-card-header>
+          Filter
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-list-header color="light">
+                    Entry Fee
+                    <ion-badge item-end>{{ entryFee.lower }}</ion-badge>
+                    <ion-badge item-end>{{ entryFee.upper }}</ion-badge>
+                  </ion-list-header>
+                <ion-item>
+                  <ion-range dualKnobs="true" [(ngModel)]="entryFee" min="21" max="72" >
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>100</ion-label>
+                  </ion-range>
+                </ion-item>
+              </ion-list>
+              <ion-list>
+                <ion-list-header color="light">
+                    Contest size
+                    <ion-badge item-end>{{ contestSize.lower }}</ion-badge>
+                    <ion-badge item-end>{{ contestSize.upper }}</ion-badge>
+                  </ion-list-header>
+                <ion-item>
+                  <ion-range dualKnobs="true" [(ngModel)]="contestSize" min="21" max="72" >
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>100</ion-label>
+                  </ion-range>
+                </ion-item>
+              </ion-list>
+
+              <ion-list>
+                <ion-list-header color="light">
+                    Category
+
+                  </ion-list-header>
+                <ion-item>
+                  <ion-label>Pepperoni</ion-label>
+                  <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label>Sausage</ion-label>
+                  <ion-checkbox [(ngModel)]="sausage" disabled="true"></ion-checkbox>
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label>Mushrooms</ion-label>
+                  <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
+                </ion-item>
+              
+              </ion-list>
+              <ion-buttons right>
+                <button ion-button>
+                  Search
+                </button>
+            </ion-buttons>
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-card > <!-- *ngFor="let liveContest of liveContest" (click)="goToDetailPage(liveContest.contest_id)"-->
+        <img src="http://192.168.1.8/bidding/assets/images/product_image/1558241210Lighthouse.jpg" style="width:100%;min-height: 177px;" />
+        <ion-card-content (click)="goToDetailPage(liveContest.contest_id)">
+            <ion-card-title >
+                <!-- {{liveContest.product_name}} -->Test
+            </ion-card-title>
+        </ion-card-content>
+        <ion-row padding-horizontal>
+            <ion-col text-left >
+                <strong>Price</strong> : Rs. 2
+                <!-- {{liveContest.product_price}} -->
+            </ion-col>
+            <ion-col text-left>
+                <strong>Entry Price</strong> : Rs. 4
+                <!-- {{liveContest.contest_entry_price}} -->
+            </ion-col>
+        </ion-row>
+        <ion-row padding-horizontal>
+            <ion-col text-left>
+                <strong>Spots Left</strong> : 3
+                <!-- {{liveContest.left_count}} -->
+            </ion-col>
+            <ion-col text-left>
+                <strong>Total Spots</strong> : 5
+                <!-- {{liveContest.contest_size}} -->
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding>
+            <ion-col text-center>
+                <ion-range min="0" disabled max="10"
+                 color="secondary">
+            </ion-range>
+                <!-- <ion-range min="0" disabled max="liveContest.contest_size"
+                    [(ngModel)]="liveContest.joined_count" color="secondary">
+                </ion-range> -->
+            </ion-col>
+
+        </ion-row>
+    </ion-card>
+</ion-content>

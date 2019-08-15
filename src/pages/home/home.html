@@ -1,0 +1,112 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title class="site_color">
+            Aksurabhi
+        </ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only menuToggle>
+                <ion-icon name='menu'></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-row class="filters">
+        <ion-col no-padding col-100>
+            <ion-slides id="headerslider" #mySliderH>
+                <!-- slidesPerView="auto"-->
+                <ion-slide (click)="onSegmentChanged(category)" *ngFor="let category of slidersHeader">
+                    <p [class.selected]="selectedSegment?.id === category.id">{{ category.title }}</p>
+                </ion-slide>
+            </ion-slides>
+        </ion-col>
+    </ion-row>
+</ion-header>
+
+<ion-content padding>
+    <ion-slides id="contentslider" #mySliderC (ionSlideDidChange)="onContentSlideChanged($event)"
+        (ionSlideWillChange)="scrollToTop($event)">
+        <ion-slide *ngFor="let slide of slidersContent" #testslide style="width:110px;">
+            <ng-container *ngIf="slide.sliderName==='Live Contest'">
+                <ion-card *ngFor="let liveContest of liveContest" (click)="goToDetailPage(liveContest.contest_id)">
+                    <img src="{{liveContest.product_image}}" style="width:100%;min-height: 177px;" />
+                    <ion-card-content (click)="goToDetailPage(liveContest.contest_id)">
+                        <ion-card-title >
+                            {{liveContest.product_name}}
+                        </ion-card-title>
+                    </ion-card-content>
+                    <ion-row padding-horizontal>
+                        <ion-col text-left >
+                            <strong>Price</strong> : Rs. {{liveContest.product_price}}
+                        </ion-col>
+                        <ion-col text-left>
+                            <strong>Entry Price</strong> : Rs. {{liveContest.contest_entry_price}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row padding-horizontal>
+                        <ion-col text-left>
+                            <strong>Spots Left</strong> : {{liveContest.left_count}}
+                        </ion-col>
+                        <ion-col text-left>
+                            <strong>Total Spots</strong> : {{liveContest.contest_size}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row no-padding>
+                        <ion-col text-center>
+                            <ion-range min="0" disabled max="liveContest.contest_size"
+                                [(ngModel)]="liveContest.joined_count" color="secondary">
+                            </ion-range>
+                        </ion-col>
+
+                    </ion-row>
+                </ion-card>
+            </ng-container>
+
+            <ng-container *ngIf="slide.sliderName==='Free Contest'">
+                <ion-card *ngFor="let liveContest of liveContest" (click)="goToDetailPage(liveContest.contest_id)">
+                    <img src="{{liveContest.product_image}}" style="width:100%;min-height: 177px;" />
+                    <ion-card-content (click)="goToDetailPage(liveContest.contest_id)">
+                        <ion-card-title >
+                            {{liveContest.product_name}}
+                        </ion-card-title>
+                    </ion-card-content>
+                    <ion-row padding-horizontal>
+                        <ion-col text-left >
+                            <strong>Price</strong> : Rs. {{liveContest.product_price}}
+                        </ion-col>
+                        <ion-col text-left>
+                            <strong>Entry Price</strong> : Rs. {{liveContest.contest_entry_price}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row padding-horizontal>
+                        <ion-col text-left>
+                            <strong>Spots Left</strong> : {{liveContest.left_count}}
+                        </ion-col>
+                        <ion-col text-left>
+                            <strong>Total Spots</strong> : {{liveContest.contest_size}}
+                        </ion-col>
+                    </ion-row>
+                    <ion-row no-padding>
+                        <ion-col text-center>
+                            <ion-range min="0" disabled max="liveContest.contest_size"
+                                [(ngModel)]="liveContest.joined_count" color="secondary">
+                            </ion-range>
+                        </ion-col>
+
+                    </ion-row>
+                </ion-card>
+            </ng-container>
+
+            <ng-container *ngIf="slide.sliderName==='Category'">
+                <ion-card>
+                    <ion-card-header style="font-weight:bold;text-align:left">
+                        {{slide.sliderName}}
+                    </ion-card-header>
+                    <ion-list>
+                      <button ion-item *ngFor="let c of category" (click)="goToListPage('category',c)">
+                         {{c.name}}
+                      </button>
+                    </ion-list>
+                  </ion-card>
+            </ng-container>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

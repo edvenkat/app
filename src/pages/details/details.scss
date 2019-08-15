@@ -1,0 +1,15 @@
+page-details {
+    .range-md.range-disabled .range-bar-active {
+        background-color: #c10536 !important;
+    }
+    .range-md.range-disabled .range-knob {
+        display: none !important;
+    }
+    .range-md .range-bar {
+        height:8px !important;
+    }
+    .myInput .input-cover {
+        border: 1px solid gray;
+        border-radius: 7px;
+    }
+}
